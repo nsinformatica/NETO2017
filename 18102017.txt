@@ -1,0 +1,106 @@
+CÓDIGO CABEÇALHO DA PÁGINA
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+   <title>Devin - Calculadora Simples</title
+
+<style type="text/css">
+<!--
+/* Conteúdo do CSS */
+-->
+</style>
+
+<script type="text/javascript">
+<!--
+/* Conteúdo do JavaScript */
+-->
+</script>
+
+</head>
+<body>
+CÓDIGO CALCULADORA
+<!-- Código "emprestado" do site http://pt.wikipedia.org/wiki/XHTML -->
+
+<form name="calcform" method="post" action="">
+   <fieldset>
+      <legend>Devin - Calculadora Simples</legend>
+
+      <label for="valor1">Digite o valor <strong>1</strong>:</label>
+      <input type="text" name="valor1" id="valor1" />
+
+      <label for="valor2">Digite o valor <strong>2</strong>:</label>
+      <input type="text" name="valor2" id="valor2" />
+
+      <label for="oper">Selecione a operação:</label>
+      <select name="oper" id="oper">
+         <option value="somar">Somar</option>
+         <option value="subtrair">Subtrair</option>
+         <option value="multiplicar">Multiplifcar</option>
+         <option value="dividir">Dividir</option>
+      </select>
+
+      <label for="res">Resultado:</label>
+      <input type="text" name="res" id="res" />
+
+      <input type="button" value="Calcular" class="botao" onClick="calcular(document.calcform.oper.value)"/>
+   </fieldset>
+</form>
+
+CÓDIGO DO CSS
+/* Estilo "emprestado" do site http://pt.wikipedia.org/wiki/XHTML */
+
+form fieldset {
+   margin: 10px auto 10px auto;
+   width: 40%;
+   border: solid black 1px;
+   padding: 3%;
+}
+
+form legend {
+   padding: 6px;
+   margin: 10px;
+   border: solid black 1px;
+   font-size: 90%;
+   font-weight: bold;
+   background-color: #e8e8e8;
+}
+
+form label {
+   display: block;
+   font-size: 11px;
+}
+
+form input {
+   width: 100%;
+   border: solid #ccc 1px;
+   font-size: 11px;
+   margin-bottom: 10px;
+}
+
+form input.botao {
+   display: block;
+   width: auto;
+   float: right;
+}
+
+JAVA DA CALCULADORA
+function calcular(oper) {
+   var valor1 = document.calcform.valor1.value;
+   var valor2 = document.calcform.valor2.value;
+
+   if (oper == "somar") {
+      var res = parseInt(valor1) + parseInt(valor2);
+   } else {
+      if (oper == "subtrair") {
+         var res = valor1-valor2;
+      } else {
+         if (oper == "multiplicar") {
+            var res = valor1*valor2;
+         } else {
+            var res = valor1/valor2;
+         }
+      }
+   }
+
+   document.calcform.res.value = res;
+}
